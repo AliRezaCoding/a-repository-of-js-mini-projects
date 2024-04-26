@@ -12,7 +12,7 @@ ul{
     --third-color: rgb(255, 255, 255);
 
     --first-bg-color: lightgreen;
-    --second-bg-color: rgba(255, 255, 255, 0.9);
+    --second-bg-color: rgba(255, 255, 255, 0.7);
     --third-bg-color: rgb(255, 255, 255);
 }
 html{
