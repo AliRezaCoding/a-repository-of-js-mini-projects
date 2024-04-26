@@ -8,12 +8,13 @@ const btnclear = document.querySelector('.clear');
 
 class App {
     // For Deleting Done Tasks & Restoring 
-    #taskElements = [];
+    #taskElements = []; // [key, value] / [taskEl, taskDesc]
 
     constructor(){
         inputToDo.addEventListener('keydown', this.#newToDo.bind(this));
         btnclear.addEventListener('click', this.#clearTasks.bind(this));
 
+        this.#getLocalStorage();
     }
 
     #newToDo (e) {
@@ -27,6 +28,8 @@ class App {
 
             // Clear Input Field
             inputToDo.value = '';
+
+            this.#setLocalStorage ();
         }
     }
     
@@ -45,20 +48,42 @@ class App {
         li.appendChild(span);
 
         // Add Element Into TaskElement Array
-        this.#taskElements.push(li);
+        this.#taskElements.push([li, task]);
 
         // Display Element In DOM
         toDoContainer.appendChild(li);
+
+        // Update Local Storage 
+        this.#setLocalStorage();
     }
 
     #clearTasks () {
-        this.#taskElements.filter(task =>  task.querySelector('input').checked)
-        .forEach(taskDone => taskDone.remove());
+
+        this.#taskElements.filter(([task, _]) =>  task.querySelector('input').checked)
+        .forEach(([taskDone, _]) => taskDone.remove());
 
         // Updating TaskElement Array
-        this.#taskElements = this.#taskElements.filter(task => 
+        this.#taskElements = this.#taskElements.filter(([task, _]) => 
             !(task.querySelector('input').checked)
         );
+
+        // Update Local Storage
+        this.#setLocalStorage();
+    }
+
+    #setLocalStorage () {
+        let data = [];
+        this.#taskElements.forEach(([_, taskDesc]) => {
+            data.push(taskDesc);
+        });
+
+        localStorage.setItem('tasks', JSON.stringify(data));
+    }
+    #getLocalStorage () {
+        const data = JSON.parse(localStorage.getItem('tasks'));
+        if (!data) return;
+
+        data.forEach(taskDesc => this.#renderNewTask(taskDesc));
     }
 }
 
