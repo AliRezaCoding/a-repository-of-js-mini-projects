@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <script defer src="script.js"></script>
+
+    <title>Paint App</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="tools-area">
+            <div class="tools">
+
+                <div class="eraser">
+                    <i class="fa-solid fa-eraser"></i>
+                    <label>eraser</label>
+                </div>
+
+                <div class="brush active">
+                    <i class="fa-solid fa-brush"></i>
+                    <label>brush</label>
+                </div>
+
+                <div class="color">
+                    <i class="fa-sharp fa-solid fa-palette"></i>
+                    <label for="color-picker">color</label>
+                    <input type="color" id="color-picker">
+
+                    <input type="range" id="brush-width" min="1" max="10">
+                </div>
+
+
+
+            </div>
+            <div class="btns">
+                <button class="save">save</button>
+                <button class="clear">clear</button>
+            </div>
+        </div>
+
+        <div class="draw-area-container">
+            <canvas class="draw-area"></canvas>
+        </div>
+
+    </div>
+
+
+</body>
+</html>
