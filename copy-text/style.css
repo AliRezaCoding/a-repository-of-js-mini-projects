@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+::selection{
+    background-color: #67cc67;
+    color: #fff;
+}
+
+body{
+    font-family: sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top left, #67cc67, #7be97b);
+}
+
+main {
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f0f0;
+    border-radius: .5rem;
+    padding: 2rem 0;
+}
+
+main input {
+    width: 90%;
+    height: 5rem;
+    background-color: #f3f0f0;
+    outline: none;
+    border: 1px solid #458a45;
+    border-radius: .5rem;
+    padding: 0 1.5rem;
+    font-size: 1.6rem;
+}
+main button {
+    width: 90%;
+    margin-top: 1.5rem;
+    padding: 1rem 0;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    background-color: #67cc67;
+    transition: all .5s;
+
+
+    /* when text copied */
+    /* background-color: #8be98b; */
+
+    color: #fff;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
