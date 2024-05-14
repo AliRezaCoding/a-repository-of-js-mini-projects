@@ -14,7 +14,7 @@ btnGenerateQR.addEventListener("click", e => {
         return alert("Please enter a text or a web address");
     }
 
-    qrImage.src = `QR API URL ${text}`;
+    qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${text}`;
     btnGenerateQR.textContent = "Generating...";
 
     qrImage.addEventListener("load", () => {
