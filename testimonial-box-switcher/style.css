@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+:root{
+    --body-bg: rgb(194, 222, 231);
+    --card-bg: rgb(130, 130, 231);
+}
+
+body{
+    min-height: 100vh;
+    background: var(--body-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: system-ui;
+}
+
+.testimonial__card{
+    background: var(--card-bg);
+    width: 70rem;
+    height: 30rem;
+    padding: 3rem;
+    font-size: 1.6rem;
+    color: white;
+    border-radius: 1rem;
+}
+
+.card__text{
+    margin-top: 3rem;
+}
+
+.card__user{
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.user__image{
+    width: 8rem;
+}
+
+.user__image img{
+    width: 100%;
+    height: auto;
+}
+
+.user__desc--name{
+    font-weight: 600;
+}
+
+.card__progress-bar{
+    height: .4rem;
+    width: 100%;
+    background: white;
+    border-radius: 100vw;
+    animation: run 10s linear infinite;
+    transform-origin: left;
+}
+
+@keyframes run {
+    0%{
+        transform: scaleX(0);
+    }
+}
