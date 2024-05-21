@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-blue: #1f93ff;
+    --color-white: #ffffff;
+    --color-black: #030b0f;
+
+    --general-box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.25),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.25),
+    8px 30px 30px rgba(0, 0, 0, 0.4), inset -2px -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0a2b3c;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: var(--general-box-shadow);
+    transition: .5s;
+}
+
+.container:hover .skills{
+    filter: blur(.5rem);
+    opacity: .2;
+}
+
+.container .skills:hover{
+    filter: blur(0rem);
+    opacity: 1;
+}
+
+.container h2{
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--color-blue);
+}
+
+.skills{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    padding-right: 1rem;
+    box-shadow: var(--general-box-shadow);
+}
+
+.skills h3{
+    min-width: 18rem;
+    text-align: right;
+    padding-right: 2rem;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--color-white);
+    letter-spacing: .2rem;
+}
+
+.skill__rating{
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 1rem 0;
+}
+
+.skill__rating input{
+    position: relative;
+    width: 2rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    appearance: none;
+    overflow: hidden;
+}
+
+.skill__rating input::before{
+    content: '\f005';
+    position: absolute;
+    font-family: fontAwesome;
+    font-size: 3.4rem;
+    left: .4rem;
+    color: var(--color-black);
+    transition: .5s ;
+}
+
+.skill__rating input:nth-child(2n+1)::before{
+    left: initial;
+    right: .4rem;
+}
+
+.skill__rating input:hover ~ input::before,
+.skill__rating input:hover::before,
+.skill__rating input:checked ~ input::before,
+.skill__rating input:checked::before
+{
+    color: var(--color-blue);
+}
