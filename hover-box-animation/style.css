@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hover-box {
+    position: relative;
+    overflow: hidden;
+    width: 500px;
+    height: 500px;
+    border: 5px solid aqua;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hover-box::before {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 50px;
+    background: lightcoral;
+    border-radius: 100vw;
+}
+
+.hover-box:hover:before {
+    animation: exit 500ms forwards;
+}
+
+.hover-box:hover:before {
+    animation: enter 500ms forwards;
+}
+
+@keyframes enter {
+    from {
+        translate: 0 0;
+    }
+
+    to {
+        translate: var(--x) var(--y);
+    }
+}
+
+@keyframes exit {
+    from {
+        translate: var(--x) var(--y);
+    }
+
+    to {
+        translate: 0 0;
+    }
+}
